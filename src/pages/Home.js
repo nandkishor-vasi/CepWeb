@@ -1,7 +1,8 @@
 // pages/Home.js
 import HeroSection from '../components/HeroSection';
+import Listings from './Listings';
 
-const Home = ({ stats }) => (
+const Home = ({ stats, devices }) => (
   <div>
     <HeroSection />
     <div className="section">
@@ -29,6 +30,14 @@ const Home = ({ stats }) => (
         </div>
       </div>
     </div>
+
+    <div className="section">
+      <div className="container">
+        <h3 className="title">Available Devices</h3>
+        <Listings devices={devices} />
+      </div>
+    </div>
+
   </div>
 );
 
