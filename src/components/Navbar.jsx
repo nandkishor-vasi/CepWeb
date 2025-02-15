@@ -38,6 +38,9 @@ const Navbar = () => {
           <a href="/contact" className="nav-link">
             Contact
           </a>
+          <a href="/dashboard" className="nav-link">
+            Dashboard
+          </a>
           <button className="auth-button" onClick={toggleAuthModal}>
             Login/Signup
           </button>
