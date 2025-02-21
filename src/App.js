@@ -3,7 +3,11 @@ import { useEffect, useState } from 'react';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Contact from './pages/Contact';
+import About from './pages/About';
 import Home from './pages/Home';
+import AuthPage from './components/AuthPage';
+import { AuthProvider } from './context/AuthContext';
 import Donate from './pages/Donate';
 import Listings from './pages/Listings';
 import DeviceDetails from './pages/DeviceDetails';
@@ -56,17 +60,22 @@ function App() {
   // }, []);
 
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home stats={stats} devices={sampleDevices} />} />
-        <Route path="/donate" element={<Donate />} />
-        <Route path="/listings" element={<Listings devices={devices} />} />
-        <Route path="/device/:id" element={<DeviceDetails devices={devices} />} />
-        <Route path="/dashboard" element={<Dashboard devices={devices} />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <AuthProvider>  
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home stats={stats} devices={sampleDevices} />} />
+          <Route path="/donate" element={<Donate />} />
+          <Route path="/listings" element={<Listings devices={devices} />} />
+          <Route path="/device/:id" element={<DeviceDetails devices={devices} />} />
+          <Route path="/dashboard" element={<Dashboard devices={devices} />} />
+          <Route path='/about' element={<About />} />
+          <Route path='contact' element={<Contact />} />
+          <Route path="/auth" element={<AuthPage />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </AuthProvider>
   );
 }
 
